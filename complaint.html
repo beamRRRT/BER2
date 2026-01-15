@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แจ้งเรื่องร้องเรียน | ANC.START_TODAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* สไตล์พิเศษสำหรับหน้าฟอร์มเพื่อให้แสดงผลได้ดีบนมือถือ */
+        .complaint-container {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+        }
+        .google-form-wrapper {
+            position: relative;
+            width: 100%;
+            height: 900px; /* ปรับความสูงตามความยาวของฟอร์ม */
+        }
+        @media (max-width: 768px) {
+            .google-form-wrapper {
+                height: 1100px; /* เพิ่มความสูงเมื่อแสดงผลบนมือถือ */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadow-lg">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <span class="text-white">ANC.</span><span class="text-red">START_TODAY</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html#policies">นโยบาย</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="team.html">สมาชิก</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="complaint.html">แจ้งเรื่องร้องเรียน</a></li>
+                    <li class="nav-item"><a class="nav-link btn-red-lg py-2 px-4 ms-lg-3" href="index.html#join">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 mt-5 bg-black text-white text-center border-bottom border-red" style="border-width: 5px !important;">
+        <div class="container py-5 fade-in-up">
+            <h1 class="fw-extrabold display-4 text-uppercase">Scan & <span class="text-red">Solve</span></h1>
+            <p class="lead text-white-50">"แจ้งปัญหาของคุณ เพื่อการแก้ไขที่รวดเร็วและตรงจุด"</p>
+        </div>
+    </header>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    
+                    <div class="text-center mb-5 fade-in-up">
+                        <h2 class="fw-bold text-black">แบบฟอร์มรับเรื่องร้องเรียน</h2>
+                        <div class="red-line mx-auto"></div>
+                        <p class="text-muted small">หากฟอร์มไม่แสดงผล <a href="https://docs.google.com/forms/d/e/1FAIpQLScCoQanEIzz0YYqQQHN8ysh6uRC1q9gBuWBXV1GVim6Tom5MA/viewform" target="_blank" class="text-red">คลิกที่นี่เพื่อเปิดในหน้าต่างใหม่</a></p>
+                    </div>
+
+                    <div class="complaint-container fade-in-up">
+                        <div class="google-form-wrapper">
+                            <iframe 
+                                src="https://docs.google.com/forms/d/e/1FAIpQLScCoQanEIzz0YYqQQHN8ysh6uRC1q9gBuWBXV1GVim6Tom5MA/viewform?embedded=true" 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                marginheight="0" 
+                                marginwidth="0">กำลังโหลดฟอร์ม...</iframe>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5 fade-in-up">
+                        <a href="index.html" class="btn btn-outline-dark px-4 py-2">
+                            <i class="fas fa-arrow-left me-2"></i> กลับหน้าแรก
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white-50 py-5 text-center">
+        <p class="small mb-0">© 2026 ANC.START_TODAY MAKE BY BEAMICTP.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
