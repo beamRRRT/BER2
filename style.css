@@ -1,90 +1,191 @@
+/* --- 1. SETTINGS & VARIABLES --- */
 :root {
     --red: #D00000;
     --black: #000000;
     --white: #ffffff;
+    --gray-bg: #f8f9fa;
 }
 
-body { font-family: 'Prompt', sans-serif; background-color: var(--white); }
-
-/* Navbar */
-.navbar { background-color: var(--black) !important; border-bottom: 3px solid var(--red); z-index: 1000; }
-.nav-link.active { color: var(--red) !important; font-weight: 600; }
-
-/* --- Hero Section (หน้าแรก) --- */
-.hero-section {
-    position: relative;
-    width: 100%;
-    min-height: 100vh; 
-    
-    /* การตั้งค่าพื้นหลัง */
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), 
-                url('BG.jpg'); 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    /* สำหรับ Desktop: เลื่อนแล้วภาพนิ่ง */
-    background-attachment: fixed; 
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body { 
+    font-family: 'Prompt', sans-serif; 
+    background-color: var(--white); 
+    color: var(--black);
+    margin: 0;
+    padding: 0;
 }
 
-/* --- เพิ่มส่วนนี้เพื่อแก้ปัญหาใน มือถือ/iPad --- */
-@media only screen and (max-width: 1024px) {
-    .hero-section {
-        background-attachment: scroll; /* สำคัญ! ป้องกันภาพซูมใน iPhone */
-        background-position: center top; /* จัดให้เห็นส่วนบนของภาพ (หัวคน) */
-        height: 100dvh; /* ความสูงเต็มจอแบบพอดีขอบมือถือ */
-        min-height: 100dvh;
-    }
+/* --- 2. NAVBAR (ใช้ร่วมกันทุกหน้า) --- */
+.navbar { 
+    background-color: var(--black) !important; 
+    border-bottom: 3px solid var(--red); 
+    z-index: 1050; 
 }
 
-/* ปุ่มสีแดงทั้งหมด */
+.navbar .nav-link { 
+    color: rgba(255,255,255,0.8) !important; 
+    transition: 0.3s; 
+    font-weight: 400;
+}
+
+.navbar .nav-link:hover, 
+.navbar .nav-link.active { 
+    color: var(--red) !important; 
+    font-weight: 600; 
+}
+
 .btn-red-lg {
     background-color: var(--red) !important;
     color: var(--white) !important;
     border: 2px solid var(--red) !important;
-    padding: 12px 25px;
+    padding: 8px 25px;
     font-weight: 600;
     transition: 0.3s;
     border-radius: 5px;
     text-decoration: none;
 }
+
 .btn-red-lg:hover {
     background-color: transparent !important;
     color: var(--red) !important;
-    transform: translateY(-3px);
 }
 
-/* นโยบาย */
-.policy-card {
-    background: white; padding: 30px 20px; border-radius: 10px;
-    text-align: center; border-bottom: 5px solid var(--red);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.4s;
-}
-.policy-card:hover { transform: translateY(-10px); }
-.policy-icon { font-size: 2.5rem; color: var(--red); margin-bottom: 15px; }
-.red-line { width: 60px; height: 4px; background: var(--red); margin: 10px auto; }
-
-/* แก้ไขส่วนรูปสมาชิก */
-.team-img { 
-    width: 100%; 
-    height: 600px; /* ความสูงในคอมพิวเตอร์ */
-    object-fit: cover; 
-    object-position: top center; 
+/* --- 3. HERO SECTION (เฉพาะหน้า INDEX) --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('BG.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* เพิ่มคำสั่งย่อรูปเฉพาะในมือถือ */
-@media (max-width: 768px) {
-    .team-img {
-        height: 400px; /* ลดความสูงในมือถือให้ดูง่ายขึ้น */
+@media only screen and (max-width: 1024px) {
+    .hero-section {
+        background-attachment: scroll;
+        height: 100dvh;
     }
 }
-.team-card { border-radius: 15px; overflow: hidden; border-bottom: 5px solid var(--red); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-/* อนิเมชั่น */
-.fade-in-up { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
-.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+/* --- 4. POLICY CARDS & SPECIAL POLICY --- */
+/* กรอบนโยบายหน้าแรก */
+.policy-card {
+    background: white; 
+    padding: 30px 20px; 
+    border-radius: 10px;
+    text-align: center; 
+    border-bottom: 5px solid var(--red);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+    transition: 0.4s;
+    height: 100%;
+}
+
+.policy-card:hover { transform: translateY(-10px); }
+
+/* ไอคอนในหน้านโยบายพิเศษ */
+.policy-icon-small { 
+    font-size: 2rem; 
+    background: rgba(208, 0, 0, 0.1); 
+    width: 60px; 
+    height: 60px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 12px; 
+    margin-bottom: 15px; 
+}
+
+.bg-red-gradient { 
+    background: linear-gradient(135deg, #D00000 0%, #8b0000 100%) !important; 
+    color: white;
+}
+
+/* --- 5. MEMBER CARDS (เฉพาะหน้า TEAM) --- */
+.member-card {
+    height: 600px; /* ปรับลดลงเล็กน้อยเพื่อให้ดูสมดุลในจอมือถือ */
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s transform;
+}
+
+.member-card img.member-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* บังคับให้รูปเต็มกรอบโดยไม่เบี้ยว */
+    object-position: center top; /* เน้นที่ใบหน้าด้านบน */
+}
+
+.member-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(208, 0, 0, 0.95)); /* พื้นหลังแดงเข้มอ่านง่าย */
+    color: white;
+    text-align: center;
+}
+
+/* --- 6. UTILITIES & ANIMATION --- */
+.red-line { width: 60px; height: 4px; background: var(--red); margin: 10px auto; }
 .text-red { color: var(--red) !important; }
+.fw-extrabold { font-weight: 800; }
+.bg-black { background-color: var(--black) !important; }
+
+.fade-in-up { 
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: 0.8s ease-out; 
+}
+.fade-in-up.visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* --- 7. FOOTER --- */
+footer { 
+    background-color: var(--black); 
+    color: rgba(255,255,255,0.5); 
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* --- 8. ELECTION POPUP ANIMATION --- */
+.election-content {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 
+                     0 0 20px rgba(208, 0, 0, 0.5);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 
+                     0 0 40px rgba(208, 0, 0, 0.8);
+    }
+}
+
+.election-number {
+    animation: bounce-number 0.6s ease-in-out infinite;
+}
+
+@keyframes bounce-number {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(208, 0, 0, 0.8);
+    }
+    50% { 
+        transform: scale(1.1);
+        box-shadow: 0 15px 40px rgba(208, 0, 0, 1);
+    }
+}
+
+/* --- 9. DEVELOPER TOOLS --- */
+#dev-tools {
+    display: none !important;
+}
